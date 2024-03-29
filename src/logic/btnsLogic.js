@@ -1,6 +1,7 @@
 "use strict";
 
 import renderTasks from "./renderTasks";
+import renderProjects from "./renderProjects";
 
 export function removeTask(btn) {
     btn.addEventListener('click', function (event) {
@@ -38,6 +39,32 @@ export function removeTask(btn) {
     })
 }
 
+export function removeProject(btn){
+    btn.addEventListener('click', function (event){
+        const projName = event.target.parentNode.dataset.project;
+        const projects = JSON.parse(localStorage.getItem('projects'))
+
+        for (let i = 0; i < projects['Today'].length; i++) {
+            for (let j = 0; j < projects[projName].length; j++) {
+                if (projects['Today'][i].id === projects[projName][j].id){
+                    projects['Today'].splice(i, 1)
+                }
+            }
+        }
+
+        for (let i = 0; i < projects['This week'].length; i++) {
+            for (let j = 0; j < projects[projName].length; j++) {
+                if (projects['This week'][i].id === projects[projName][j].id){
+                    projects['This week'].splice(i, 1)
+                }
+            }
+        }
+
+        delete projects[projName];
+        localStorage.setItem('projects', JSON.stringify(projects))
+        renderProjects()
+    })
+}
 
 export function editTask(btn) {
     btn.addEventListener('click', function (event) {
@@ -82,4 +109,4 @@ export function editTask(btn) {
     })
 }
 
-export default {removeTask, editTask}
+export default {removeTask, editTask, removeProject}
