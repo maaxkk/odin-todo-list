@@ -1,6 +1,8 @@
 "use strict";
 
 
+import {removeTask, editTask} from "./btnsLogic";
+
 export function renderTasks(projName){
 
     const taskDivs = document.querySelectorAll('.task')
@@ -20,9 +22,15 @@ export function renderTasks(projName){
 
         detail.classList.add('done', 'details')
         detail.innerHTML = 'Details'
+        detail.dataset.index = `${i}`
+
+        editTask(detail)
 
         circle.innerHTML = 'Done'
         circle.classList.add('done')
+        circle.dataset.index = `${i}`
+
+        removeTask(circle)
 
         taskTitle.textContent = projects[projName][i].title
 

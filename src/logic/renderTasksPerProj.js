@@ -11,13 +11,21 @@ export function renderTasksPerProject(btn) {
 
     btn.addEventListener('click', function (event){
 
-        console.log(btn.textContent)
+        // console.log(btn.textContent)
 
         projName.textContent = btn.textContent
 
         renderTasks(btn.textContent)
 
         createTask(btn.textContent)
+
+        if (btn.textContent === 'Today' || btn.textContent === 'This week'){
+            const addTask = document.querySelector('.add-task')
+            addTask.style.display = 'none';
+        } else {
+            const addTask = document.querySelector('.add-task')
+            addTask.style.display = 'block';
+        }
 
     })
 }

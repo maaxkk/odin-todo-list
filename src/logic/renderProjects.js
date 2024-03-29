@@ -10,26 +10,28 @@ export function renderProjects(){
 
     const userProjs = document.querySelector('.user-projs')
 
+    const mainProjects = document.querySelector('.main-proj')
+
+    mainProjects.innerHTML = '';
     userProjs.innerHTML = '';
 
     for(let key in projects){
 
-        if (key !== 'Inbox' && key !== 'Today' && key !== 'This week'){
+        const btns = document.createElement('div')
+        const btn = document.createElement('button')
 
-            const btns = document.createElement('div')
-            const btn = document.createElement('button')
+        btn.textContent = key;
 
-            btn.textContent = key;
+        btns.classList.add('btns')
+        btns.appendChild(btn)
 
-            btns.classList.add('btns')
-            btns.appendChild(btn)
-
+        if(key === 'Inbox' || key === 'Today' || key === 'This week'){
+            mainProjects.appendChild(btns)
+        } else {
             userProjs.appendChild(btns)
-
-            const submit = document.querySelector('.submit')
-
-            renderTasksPerProject(btn)
         }
+
+        renderTasksPerProject(btn)
     }
 
 }
