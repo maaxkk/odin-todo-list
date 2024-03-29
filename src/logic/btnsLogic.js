@@ -75,6 +75,10 @@ export function editTask(btn) {
             dialog.innerHTML = '';
             dialogWindow.close()
         })
+
+        dialogWindow.addEventListener('close', function (event){
+            dialog.innerHTML = '';
+        })
     })
 }
 
