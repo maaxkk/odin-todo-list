@@ -2,6 +2,7 @@
 
 import renderTasks from "./renderTasks";
 import renderProjects from "./renderProjects";
+import {getTodayTasks, getUpcomingTasks} from "./upcoming";
 
 export function removeTask(btn) {
     btn.addEventListener('click', function (event) {
@@ -66,7 +67,8 @@ export function removeProject(btn){
     })
 }
 
-export function editTask(btn) {
+export function inspectTask(btn) {
+
     btn.addEventListener('click', function (event) {
         const submitBtn = document.querySelector('.submit')
 
@@ -109,4 +111,41 @@ export function editTask(btn) {
     })
 }
 
-export default {removeTask, editTask, removeProject}
+
+export function editTask(btn){
+    btn.addEventListener('click', function (event){
+        const inputTitle = document.querySelector('.edit-input-title')
+        const inputDate = document.querySelector('.edit-input-date')
+        const inputPriority = document.querySelector('.edit-input-priority:checked')
+        const inputDescription = document.querySelector('#edit-description')
+
+        const submitBtn = document.querySelector('.submit')
+
+        const projName = submitBtn.dataset.key
+
+        const projects = JSON.parse(localStorage.getItem('projects'))
+
+        const index = btn.dataset.index
+
+        const dialog = document.querySelector('.edit-task')
+        dialog.showModal();
+        dialog.addEventListener('submit', function (event){
+            event.preventDefault()
+            for (let i = 0; i < projects[projName].length; i++) {
+                if (+index === i){
+                    console.log('test')
+                    console.log(inputPriority.id)
+                    projects[projName][i].title = inputTitle.value;
+                    projects[projName][i].duedate = inputDate.value;
+                    projects[projName][i].priority = inputPriority.id;
+                    projects[projName][i].description = inputDescription.value;
+                    localStorage.setItem('projects', JSON.stringify(projects))
+                    renderTasks(projName)
+                }
+            }
+            dialog.close()
+        })
+    })
+}
+
+export default {removeTask, editTask, inspectTask, removeProject}

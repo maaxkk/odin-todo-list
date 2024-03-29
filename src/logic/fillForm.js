@@ -14,7 +14,7 @@ export function fillForm() {
         return [inputTitle, inputDate, inputPriority, inputDescription]
     }
 
-    document.addEventListener('submit', function (event) {
+    document.querySelector('dialog').addEventListener('submit', function (event) {
         event.preventDefault()
 
         const [inputTitle, inputDate, inputPriority, inputDescription] = formElements()

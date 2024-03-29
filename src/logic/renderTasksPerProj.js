@@ -11,8 +11,6 @@ export function renderTasksPerProject(btn) {
 
     btn.addEventListener('click', function (event){
 
-        // console.log(btn.textContent)
-
         projName.textContent = btn.textContent
 
         renderTasks(btn.textContent)

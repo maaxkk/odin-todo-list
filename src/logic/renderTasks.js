@@ -1,7 +1,7 @@
 "use strict";
 
 
-import {removeTask, editTask} from "./btnsLogic";
+import {removeTask, inspectTask, editTask} from "./btnsLogic";
 
 export function renderTasks(projName){
 
@@ -19,12 +19,13 @@ export function renderTasks(projName){
         const taskDiv = document.createElement('div')
         const circle = document.createElement('button')
         const detail = document.createElement('button')
+        const edit = document.createElement('button')
 
         detail.classList.add('done', 'details')
         detail.innerHTML = 'Details'
         detail.dataset.index = `${i}`
 
-        editTask(detail)
+        inspectTask(detail)
 
         circle.innerHTML = 'Done'
         circle.classList.add('done')
@@ -32,10 +33,16 @@ export function renderTasks(projName){
 
         removeTask(circle)
 
+        edit.innerHTML = 'Edit'
+        edit.classList.add('done', 'edit')
+        edit.dataset.index = `${i}`
+
+        editTask(edit)
+
         taskTitle.textContent = projects[projName][i].title
 
         taskDiv.classList.add('task')
-        taskDiv.append(circle, detail, taskTitle)
+        taskDiv.append(circle, detail, edit, taskTitle)
 
         tasksDiv.prepend(taskDiv)
     }

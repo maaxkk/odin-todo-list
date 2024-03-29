@@ -120,6 +120,10 @@ header {
     background: #49567E;
 }
 
+.edit {
+    background: #353947;
+}
+
 .task {
     display: flex;
     align-items: center;
@@ -157,7 +161,7 @@ label > input  {
     display: block;
 }
 
-.input-title, .input-date {
+.input-title, .input-date, .edit-input-title, .edit-input-date {
     background-color: #44475A;
     color: #F8F8F2;
     border-radius: 6px;
@@ -168,7 +172,7 @@ label > input  {
     font-size: 1.1rem;
 }
 
-.radios {
+.radios{
     font-weight: bold;
     font-size: 1.25rem;
 }
@@ -206,11 +210,11 @@ textarea {
     width: 80px;
 }
 
-.submit {
+.submit, .edit-submit {
     background-color: #50FA7B;
 }
 
-.cancel {
+.cancel, .edit-cancel {
     background-color: #FF5555;
 }
 

@@ -8,7 +8,7 @@
 // 5) Make clickable main buttons ----> Done
 // 6) Hide button in Today and This week -----> Done
 // 7) Add function to remove Project -----> Done
-// 8) Add function to edit task ---->
+// 8) Add function to edit task ----> Done
 
 import './style/style.css';
 import projects from "./logic/projects";
