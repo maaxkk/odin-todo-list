@@ -19,7 +19,6 @@ export function renderTasksPerProject(btn) {
 
         createTask(btn.textContent)
 
-
     })
 }
 

@@ -26,6 +26,8 @@ export function renderProjects(){
 
             userProjs.appendChild(btns)
 
+            const submit = document.querySelector('.submit')
+
             renderTasksPerProject(btn)
         }
     }

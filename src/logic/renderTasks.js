@@ -11,9 +11,6 @@ export function renderTasks(projName){
 
     taskDivs.forEach(div => div.remove())
 
-    projects['22'][0] = {title: 'test'};
-    projects['22'][1] = {title: 'test2'};
-
     for (let i = 0; i < projects[projName].length; i++) {
 
         const taskTitle = document.createElement('p')
