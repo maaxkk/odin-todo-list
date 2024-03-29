@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+<script defer src="bundle.js"></script></head>
+<body>
+    <header>
+        <h1>Todo List</h1>
+    </header>
+    <div class="sidebar">
+        <div class="btns">
+            <button>Inbox</button>
+        </div>
+        <div class="btns">
+            <button>Today</button>
+        </div>
+        <div class="btns">
+            <button>This week</button>
+        </div>
+        <div class="new-proj">
+            <button class="add-proj" >&#43;</button>
+            <input class="proj-title" type="text" placeholder="Add project">
+        </div>
+        <div class="user-projs">
+
+        </div>
+    </div>
+    <div id="content">
+        <div class="project-title">
+            <p class="project-name">Inbox</p>
+        </div>
+        <div class="tasks">
+            <div class="new-task">
+                <button class="add-task">Add new task</button>
+            </div>
+        </div>
+    </div>
+    <dialog>
+        <form>
+            <div class="dialog-content">
+                <p class="add-text">Add new task</p>
+                <label for="title">Title:
+                    <input required id="title" class="field input-title" name="title" value="Do 1" type="text" placeholder="Title">
+                </label>
+                <label for="date">Due date:
+                    <input required id="date" class="field input-date" value="2024-04-01" name="date" type="date">
+                </label>
+                <div class="radios">
+                    <p>Priority</p>
+                    <label for="low">Low
+                        <input required checked id="low" class="field input-priority" name="priority" type="radio">
+                    </label>
+                    <label for="medium">Medium
+                        <input required id="medium" class="field input-priority" name="priority" type="radio">
+                    </label>
+                    <label for="high">High
+                        <input required id="high" class="field input-priority" name="priority" type="radio">
+                    </label>
+                </div>
+                <label for="description">Description:
+                    <textarea placeholder="Do 1" id="description"></textarea>
+                </label>
+                <div class="dialog-btns">
+                    <button class="submit">Submit</button>
+                    <button class="cancel">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </dialog>
+</body>
+</html>
